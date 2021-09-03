@@ -8,12 +8,12 @@ set -o nounset
 JOB_NAME=${JOB_NAME:-cron-job-postgres}
 BACKUP_DIR=${BACKUP_DIR:-/tmp}
 #BOTO_CONFIG_PATH=${BOTO_CONFIG_PATH:-/root/.boto}
-GCS_BUCKET=${GCS_BUCKET:-gs://postgres_data_jatin }
+GCS_BUCKET=${GCS_BUCKET:-bucket }
 #GCS_KEY_FILE_PATH=${GCS_KEY_FILE_PATH:-}
 POSTGRES_HOST=${POSTGRES_HOST:-localhost}
 POSTGRES_PORT=${POSTGRES_PORT:-5432}
 POSTGRES_DB=${POSTGRES_DB:-testdb}
-POSTGRES_USER=${POSTGRES_USER:-postgres}
+POSTGRES_USER=${POSTGRES_USER:-}
 POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-}
 #SLACK_ALERTS=${SLACK_ALERTS:-}
 #SLACK_AUTHOR_NAME=${SLACK_AUTHOR_NAME:-postgres-gcs-backup}
@@ -46,7 +46,7 @@ backup() {
 }
 
 upload_to_gcs() {
-  if [[ ! "$GCS_BUCKET" =~ gs://postgres_data_jatin ]]; then
+  if [[ ! "$GCS_BUCKET" =~ buckets ]]; then
     GCS_BUCKET="gs://${GCS_BUCKET}"
   fi
 
