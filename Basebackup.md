@@ -4,7 +4,8 @@
 ####  Steps
 
 - Stop the database 
-```systemctl stop postgresql-12.service
+```
+systemctl stop postgresql-12.service
 ```
 #### Use the Basebackup 
 
@@ -19,28 +20,32 @@ $ pg_basebackup -D backup -Ft -z -P
 
 ```
 #### Single-Table Local database 
-```$ pg_basebackup -D - -Ft -X fetch | bzip2 > backup.tar.bz2
+```
+$ pg_basebackup -D - -Ft -X fetch | bzip2 > backup.tar.bz2
 ```
 --------------------------------------------------------------
 ### How to Restore the Basebackup
 #### Delete the $PGDATA /12/data 
-```rm -rf ./data
+```
+rm -rf ./data
 ```
 #### Restore /data
-```cp -r ./backupfile/ ./12/data/
+```
+cp -r ./backupfile/ ./12/data/
 ```
 #### After Restoring the data Permistions to be needed
 - Modefy the Permisstions 
-```chmod 0750 -R /var/lib/pgsql/12/data
+```
+chmod 0750 -R /var/lib/pgsql/12/data
 
 ```
 - Change the Ownership 
-```chown postgres:postgres  -R /var/log/pgbackrest
-
+```
+chown postgres:postgres  -R /var/log/pgbackrest
 ```
 --------------------------------------------------------------
 #### Restart the Database PostgreSQL 
 
-```systemctl restart postgresql-12.service
-
+```
+systemctl restart postgresql-12.service
 ```
