@@ -34,7 +34,7 @@ rm -rf ./data
 cp -r ./backupfile/ ./12/data/
 ```
 #### After Restoring the data Permistions to be needed
-- Modefy the Permisstions 
+-
 ```
 chmod 0750 -R /var/lib/pgsql/12/data
 
