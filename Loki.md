@@ -12,14 +12,15 @@
 
 * wget https://raw.githubusercontent.com/grafana/loki/master/cmd/loki/loki-local-config.yaml
 
-* crete  config file using vim and paste it
-    vim config.yaml
-
+* Create .config file add this
+ ```
+ vim config.yaml
+ ```
+---
+```
 auth_enabled: false
-
 server:
   http_listen_port: 3100
-
 ingester:
   lifecycler:
     address: 127.0.0.1
@@ -60,16 +61,23 @@ chunk_store_config:
 table_manager:
   retention_deletes_enabled: false
   retention_period: 0s
-
+```
 # after that run the loki
-    ./loki-linux-amd64 -config.file=config.yaml
-
+### Configuration
+```
+ ./loki-linux-amd64 -config.file=config.yaml
+```
+-----
+```
 * after that install promtail
      wget https://raw.githubusercontent.com/grafana/loki/main/clients/cmd/promtail/promtail-local-config.yaml
+```
+---
+### Config the Promtail 
 
-* opn the file      
-    vim promtail-local-config.yaml and paste it
-        server:
+* vim promtail-local-config.yaml and paste it
+``` 
+server:
   http_listen_port: 9080
   grpc_listen_port: 0
 
@@ -87,6 +95,7 @@ scrape_configs:
     labels:
       job: varlogs
       __path__: /var/lib/pgsql/12/data/log/*log
+```
 
 * and after that download the zip 
 
