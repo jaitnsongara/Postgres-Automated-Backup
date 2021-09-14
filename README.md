@@ -9,3 +9,6 @@ Backup.sh files containes Jobs take dump backup and upload the container regestr
 
 ## Here is the digramatic represtation 
 <img src="https://github.com/jaitnsongara/Postgres-Automated-Backup/blob/main/Github-Postgres-Upload/Postgres-Arc.svg"/>
+
+## logs using the LOKI in Grafana
+<img src="https://github.com/jaitnsongara/Postgres-Automated-Backup/blob/main/Github-Postgres-Upload/logs.svg"/>
